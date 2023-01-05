@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class PlatformColour : MonoBehaviour
 { 
-    public float speed = 1.0f;
+    public float speed = 10f;
     public Color startColor;
     public Color endColor;
     public bool repeatable = false;
     float startTime;
+    float PlatFormSpeed = 0.01f;
 
     // Use this for initialization
     void Start()
@@ -28,6 +29,6 @@ public class PlatformColour : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.Lerp(startColor, endColor, t);
         }
 
-        transform.Rotate(new Vector3(0f, 1f, 0f)  * Time.fixedTime);
+        transform.Rotate(new Vector3(0f, 1f, 0f),PlatFormSpeed * Time.fixedTime);
     }
 }
